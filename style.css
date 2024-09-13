@@ -10,7 +10,8 @@ body {
     margin: auto;
 }
 
-.sidebar>.logo-header, .main>nav {
+.sidebar>.logo-header,
+.main>nav {
     max-height: 64px;
     border-bottom: solid 1px #E5E5E5;
 }
@@ -90,8 +91,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    background-color: #fff;
     padding: 16px 32px;
     font-size: 0.75rem;
+
+    position: sticky;
+    top: 0;
 }
 
 .main>.dashboard {
@@ -148,6 +154,7 @@ body {
 .main>nav>.nav-infos>.fa-bell {
     padding-left: 32px;
     color: #B0C3CC;
+    cursor: pointer;
 }
 
 /* Dashboard */
@@ -160,4 +167,67 @@ body {
     font-size: 1.5rem;
 }
 
-.dashboard-header>.card{}
+/* Dashboard Section 1 */
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.dashboard-stats>.card {
+    background-color: #fff;
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    gap: 18px;
+}
+
+.dashboard-stats>.card>.logo-container {
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.dashboard-stats>.card:nth-child(1)>.logo-container {
+    background: linear-gradient(135deg, #504178 0%, #FF7B8A 100%);
+}
+
+.dashboard-stats>.card:nth-child(2)>.logo-container {
+    background: linear-gradient(135deg, #42BA17 0%, #9FF182 100%);
+}
+
+.dashboard-stats>.card:nth-child(3)>.logo-container {
+    background: linear-gradient(135deg, #5A6ACF 0%, #FF7B8A 100%);
+}
+
+.dashboard-stats>.card:nth-child(4)>.logo-container {
+    background: linear-gradient(135deg, #D32136 0%, #FF7B8A 100%);
+}
+
+.dashboard-stats>.card>.card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    white-space: nowrap;
+}
+
+.dashboard-stats>.card>.card-text>.number>span {
+    font-size: 0.75rem;
+    color: #149D52;
+    display: inline-flex;
+    padding-left: 4px;
+    gap: 4px;
+}
+
+
+.dashboard-stats>.card>.card-text>.number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F384C;
+}
+
+.dashboard-stats>.card>.card-text>.name {
+    color: #80809C;
+}
