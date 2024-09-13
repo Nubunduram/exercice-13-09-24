@@ -113,6 +113,65 @@ section {
 	display: block;
 }
 
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="file"],
+input[type="color"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+textarea,
+button {
+  /* Remove default margin and padding */
+  margin: 0;
+  padding: 0;
+
+  /* Remove borders and outlines */
+  border: none;
+  outline: none;
+
+  /* Reset font and size */
+  font-family: inherit;
+  font-size: 100%;
+
+  /* Set box sizing */
+  box-sizing: border-box;
+
+  /* Remove background color and shadows */
+  background: none;
+  box-shadow: none;
+}
+
+/* Add custom focus styles if needed */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* Optionally, reset width for inputs to make them more uniform */
+input,
+textarea,
+select {
+  width: 100%;
+  display: block;
+}
+
+*::placeholder {
+	color: inherit;
+}
+
 body {
 	line-height: 1;
 }
@@ -165,12 +224,10 @@ button {
   }
   
 
-button, a {
+button, a, select {
 	cursor: pointer;
 }
 
 img {
     width: 100%;
-	height: 100%;
-    object-fit: cover;
 }
