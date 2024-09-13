@@ -163,11 +163,10 @@ body {
     padding: 33px 40px;
 }
 
+/* Dashboard header */
 .dashboard h1 {
     font-size: 1.5rem;
 }
-
-/* Dashboard Section 1 */
 
 .dashboard-stats {
     display: grid;
@@ -221,7 +220,6 @@ body {
     gap: 4px;
 }
 
-
 .dashboard-stats>.card>.card-text>.number {
     font-size: 1.5rem;
     font-weight: 600;
@@ -230,4 +228,92 @@ body {
 
 .dashboard-stats>.card>.card-text>.name {
     color: #80809C;
+}
+
+/* Dashboard Section 1 Statistik Pemesanan */
+
+.statistic-section {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 22px;
+}
+
+.statistic-section>.chart-section {
+    padding: 15px 36px;
+    width: 742px;
+}
+
+/* Stat section header */
+
+.statistic-section>.chart-section>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.statistic-section>.chart-section>header>h2 {
+    color: #1F384C;
+    font-size: 1.125rem;
+}
+
+.statistic-section>.chart-section>header>p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 25px;
+
+    color: #504178;
+    font-size: 0.875rem;
+
+    border: solid 1px #00000033;
+    border-radius: 10px;
+}
+
+/* Stat section chart */
+
+.full-chart {
+    display: flex;
+    margin-top: 28px;
+    
+    color: #939393;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.full-chart .statistic-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.full-chart .monthly-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+}
+
+.full-chart .monthly-bars {
+    padding-left: 12px;
+
+}
+
+.full-chart .month {
+    height: 36px;
+    display: grid;
+    place-items: center;
+}
+
+.full-chart .empty-bar{
+    position: relative;
+    width: 20px;
+    background-color: #EDE7FD;
+    height: 380px;
+}
+
+.statistic-section>hr {
+    margin: 30px 0;
 }
