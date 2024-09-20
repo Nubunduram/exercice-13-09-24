@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --nav-height: 64px;
+    --sidebar-width: 240px;
+}
+
 html {
     font-family: 'Poppins';
 }
@@ -12,26 +17,31 @@ body {
 
 .sidebar>.logo-header,
 .main>nav {
-    max-height: 64px;
+    height: var(--nav-height);
     border-bottom: solid 1px #E5E5E5;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 240px;
+    width: var(--sidebar-width);
     color: #767D87;
     font-weight: 500;
 }
 
 .sidebar>.logo-header {
     width: 100%;
-    padding: 16px 60px;
+    padding: calc(var(--nav-height) / 4) 60px;
+}
+
+.sidebar>.logo-header img {
+    height: calc(var(--nav-height) / 2);
+    cursor: pointer;
 }
 
 .sidebar>nav {
     background-color: #0100390A;
     padding: 0 16px;
-    height: 100%;
+    height: calc(100% - var(--nav-height));
 }
 
 .sidebar>nav>.menu>.dashboard-button {
@@ -82,7 +92,7 @@ body {
 /* Main */
 
 .main {
-    width: 100%;
+    width: calc(100% - var(--sidebar-width));
 }
 
 /* Navbar */
@@ -98,6 +108,7 @@ body {
 
     position: sticky;
     top: 0;
+    z-index: 9999;
 }
 
 .main>.dashboard {
@@ -161,6 +172,12 @@ body {
 
 .dashboard {
     padding: 33px 40px;
+}
+
+.dashboard>section {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 22px;
 }
 
 /* Dashboard header */
@@ -234,14 +251,12 @@ body {
 
 .statistic-section {
     display: flex;
-    background-color: #fff;
-    border-radius: 10px;
-    margin-top: 22px;
 }
 
 .statistic-section>.chart-section {
     padding: 15px 36px;
-    width: 742px;
+    /* width: 742px; */
+    flex-grow: 1;
 }
 
 /* Stat section header */
@@ -253,9 +268,10 @@ body {
     font-weight: 600;
 }
 
-.statistic-section>.chart-section>header>h2 {
+.statistic-section h2 {
     color: #1F384C;
     font-size: 1.125rem;
+    font-weight: 600;
 }
 
 .statistic-section>.chart-section>header>p {
@@ -276,7 +292,7 @@ body {
 .full-chart {
     display: flex;
     margin-top: 28px;
-    
+
     color: #939393;
     font-weight: 600;
     font-size: 0.75rem;
@@ -294,6 +310,7 @@ body {
     justify-content: space-between;
     align-items: end;
     width: 100%;
+    gap: 4px;
 }
 
 .full-chart .monthly-bars {
@@ -307,13 +324,264 @@ body {
     place-items: center;
 }
 
-.full-chart .empty-bar{
+.full-chart .empty-bar {
     position: relative;
-    width: 20px;
+    width: 100%;
     background-color: #EDE7FD;
     height: 380px;
 }
 
+.full-chart .fill-bar {
+    position: absolute;
+    background-color: #504178;
+    bottom: 0;
+    width: 100%;
+}
+
+/* This should be done dynamically (filling bar with %) */
+
+.chart-bar:nth-child(1)>.empty-bar>.fill-bar {
+    height: 78%;
+}
+
+.chart-bar:nth-child(2)>.empty-bar>.fill-bar,
+.chart-bar:nth-child(5)>.empty-bar>.fill-bar {
+    height: 50%;
+}
+
+.chart-bar:nth-child(3)>.empty-bar>.fill-bar {
+    height: 63%;
+}
+
+.chart-bar:nth-child(4)>.empty-bar>.fill-bar {
+    height: 28%;
+}
+
+.chart-bar:nth-child(6)>.empty-bar>.fill-bar,
+.chart-bar:nth-child(9)>.empty-bar>.fill-bar {
+    height: 70%;
+}
+
+.chart-bar:nth-child(7)>.empty-bar>.fill-bar {
+    height: 39%;
+}
+
+.chart-bar:nth-child(8)>.empty-bar>.fill-bar {
+    height: 90%;
+}
+
+.chart-bar:nth-child(10)>.empty-bar>.fill-bar {
+    height: 55%;
+}
+
+.chart-bar:nth-child(11)>.empty-bar>.fill-bar {
+    height: 83%;
+}
+
+.chart-bar:nth-child(12)>.empty-bar>.fill-bar {
+    height: 68%;
+}
+
 .statistic-section>hr {
     margin: 30px 0;
+}
+
+/* Customer part in statistik section */
+
+.customer-section {
+    padding: 24px;
+}
+
+.customer-section>h2 {
+    padding-bottom: 25px;
+}
+
+.customer-section>.customer-list {
+    display: grid;
+    gap: 14px;
+}
+
+.customer-section>.customer-list>li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.customer-section>.customer-list>li>.customer-name {
+    color: #273240;
+}
+
+.customer-section>.customer-list>li>.customer-number {
+    color: #68707A;
+    min-width: 27px;
+}
+
+/* Overview Section */
+
+.overview>header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 17px 0;
+    width: 95%;
+}
+
+.overview>header>h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.overview>header>input {
+    background-color: #F6F8FA;
+    width: 198px;
+    padding: 13px;
+    border-radius: 10px;
+
+    font-weight: 400;
+}
+
+.overview>header>input::placeholder {
+    color: #B0B0B0;
+}
+
+.overview-table {
+    width: 95%;
+    margin: auto;
+
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.overview-table thead {
+    background-color: #F3F6F9;
+    font-weight: 600;
+}
+
+/* css doesn't allow to style the border radius of tr for some reason */
+.overview-table thead>tr>th:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.overview-table thead>tr>th:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+.overview-table th,
+.overview-table td {
+    padding: 14px 0;
+    text-align: left;
+}
+
+.overview-table tr>*:first-child {
+    padding: 14px;
+}
+
+.overview-table tr>*:last-child {
+    padding-right: 14px;
+}
+
+.overview-table th:nth-child(1),
+.overview-table td:nth-child(1) {
+    width: 5%;
+}
+
+.overview-table th:nth-child(2),
+.overview-table td:nth-child(2) {
+    width: 30%;
+}
+
+.overview-table th:nth-child(3),
+.overview-table td:nth-child(3),
+.overview-table th:nth-child(4),
+.overview-table td:nth-child(4) {
+    width: 20%;
+}
+
+.overview-table th:nth-child(5),
+.overview-table td:nth-child(5) {
+    width: 25%;
+}
+
+.overview-table tr:nth-child(even) {
+    background-color: #F3F6F980;
+}
+
+/* Pagination */
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pagination>.page-list {
+    display: flex;
+    gap: 6px;
+}
+
+.pagination>.page-list>li {
+    background-color: #FFFFFF;
+    color: #BCBCBC;
+
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-content: center;
+    border-radius: 6px;
+}
+
+.pagination>div {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-content: center;
+}
+
+.pagination>div,
+.page-list>li {
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.pagination>div:hover,
+.page-list>li:hover {
+    transform: scale(1.2);
+}
+
+.pagination>.page-list>.actual-page {
+    background-color: #504178;
+    color: #fff;
+}
+
+.no-more-page {
+    color: #86868C;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .statistic-section {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        width: 100%;
+    }
 }
